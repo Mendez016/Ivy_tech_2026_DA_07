@@ -348,5 +348,12 @@ window.CASE_DATA = {
    "contact": "Dean of Students office",
    "bring_or_share": "Student ID and a short description of the need"
   }
- ]
+ ],
+"students_email": [
+ { "student_id": "S4001", "email": "jason@example.edu" },
+ { "student_id": "S4002", "email": "sam@example.edu" },
+ { "student_id": "S4003", "email": "jakie@example.edu" },
+ { "student_id": "S4004", "email": "bill@example.edu" },
+ { "student_id": "S4004", "email": "ricky@example.edu" }
+]
 };

@@ -704,6 +704,21 @@
       return;
     }
 
+    // Email reminder block
+    const emails = (DATA.students_email || [])
+      .filter(r => r.student_id === studentId)
+      .map(r => r.email);
+    const emailReminderHtml = emails.length
+      ? '<div class="action-card blue" style="margin-bottom:20px;">'
+        + '<strong>Reminder Notifications</strong>'
+        + '<p>Reminders for this account will be sent to:</p>'
+        + emails.map(function (e) {
+            return '<p style="margin:2px 0;">📧 <a href="mailto:' + esc(e) + '">' + esc(e) + '</a></p>';
+          }).join('')
+        + '<p style="margin-top:6px;color:var(--muted);font-size:0.82rem;">Student ID: ' + esc(studentId) + '</p>'
+        + '</div>'
+      : '';
+
     // Progress counts
     const doneStatuses = ['complete', 'accepted', 'not needed'];
     const doneCount  = allItems.filter(r => doneStatuses.includes(r.status.toLowerCase())).length;
@@ -771,7 +786,7 @@
         + '</div>';
     }).join('');
 
-    container.innerHTML = progressHtml + itemsHtml;
+    container.innerHTML = emailReminderHtml + progressHtml + itemsHtml;
 
     // Wire contact-link buttons: go to Contacts tab and highlight matching card
     container.querySelectorAll('.contact-link').forEach(function (btn) {
