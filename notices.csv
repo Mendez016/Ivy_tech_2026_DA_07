@@ -1,0 +1,5 @@
+notice_id,student_id,date_sent,subject,body
+N01,S4001,2026-11-02,Verification Selection Notice,Your 2026-27 FAFSA has been selected for verification. Federal regulations require that the institution confirm the accuracy of reported data. Please submit the V1 Verification Worksheet and applicable tax documentation. Aid disbursement will be deferred pending completion.
+N02,S4002,2026-10-28,SAP Status: Suspension,"Your academic record does not meet Satisfactory Academic Progress standards (completion rate below 67 percent, cumulative GPA below 2.0). Title IV eligibility is suspended. You may submit an appeal with documentation of mitigating circumstances and an approved academic plan."
+N03,S4002,2026-11-10,Account Balance Notice,"Your account reflects an unpaid balance of 1,842.00. Unpaid balances as of the payment deadline will result in administrative withdrawal from registered courses."
+N04,S4003,2026-11-05,Award Notification,"You have been offered a Direct Subsidized Loan for the 2026-27 aid year. Prior to disbursement, first-time borrowers must complete Entrance Counseling and execute a Master Promissory Note."
