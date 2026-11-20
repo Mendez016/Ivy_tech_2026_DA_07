@@ -2,4 +2,4 @@
 
 ## Architectute created by IBM Bob
 
-<img width="3600" height="2516" alt="diagram_2026" src="https://github.com/user-attachments/assets/cc0172d1-389e-4afb-8ca9-3c9f9ac087a4" />
+<img width="3600" height="2471" alt="data_diagram_2026" src="https://github.com/user-attachments/assets/5f6414a5-16ac-49ab-8fe6-37dccbc37e75" />
