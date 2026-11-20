@@ -12,8 +12,8 @@
       --surface:   #ffffff;
       --border:    #dde1e8;
       --text:      #1f2328;
-      --muted:     #57606a;
-      --accent:    #2563a8;
+      --muted:     #4D555B;
+      --accent:    #1F518A;
       --accent-lt: #e8f0fb;
       --green:     #166534;
       --green-bg:  #dcfce7;
@@ -361,6 +361,164 @@
       margin-top: 4px;
     }
 
+    /* ── Notification banner ─────────────────────────────────────── */
+    .notif-banner {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      color: var(--accent);
+      background: var(--accent-lt);
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius);
+      padding: 7px 12px;
+      margin-bottom: 20px;
+    }
+    .notif-banner .notif-icon { flex-shrink: 0; }
+
+    /* ── "Hand to a professional" button ────────────────────────── */
+    .btn-report {
+      flex-shrink: 0;
+      padding: 8px 14px;
+      background: var(--surface);
+      border: 1px solid var(--accent);
+      border-radius: var(--radius);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-report:hover { background: var(--accent-lt); }
+    .btn-report:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+    /* ── PDF report overlay ──────────────────────────────────────── */
+    .report-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 32px 16px;
+    }
+    .report-overlay.open { display: block; }
+    .report-modal {
+      background: var(--surface);
+      border-radius: var(--radius);
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 32px;
+      position: relative;
+    }
+    .report-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .report-modal-header h2 { font-size: 1.1rem; font-weight: 700; }
+    .report-close {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      color: var(--muted);
+      line-height: 1;
+      padding: 0 4px;
+    }
+    .report-close:hover { color: var(--text); }
+    .report-meta { font-size: 0.85rem; color: var(--muted); margin-bottom: 20px; line-height: 1.8; }
+    .report-meta strong { color: var(--text); }
+    .report-section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin: 20px 0 8px;
+      padding-bottom: 4px;
+      border-bottom: 1px solid var(--border);
+    }
+    .report-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.88rem;
+    }
+    .report-row:last-child { border-bottom: none; }
+    .report-row-name { flex: 1; font-weight: 500; }
+    .report-row-detail { font-size: 0.82rem; color: var(--muted); margin-top: 2px; }
+    .report-office-box {
+      background: var(--accent-lt);
+      border: 1px solid #bfdbfe;
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      margin-top: 20px;
+    }
+    .report-office-box h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 10px; }
+    .report-office-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.88rem;
+      padding: 6px 0;
+      border-bottom: 1px solid #bfdbfe;
+    }
+    .report-office-row:last-child { border-bottom: none; }
+    .report-office-link {
+      background: none; border: none; padding: 0;
+      color: var(--accent); font-size: 0.85rem;
+      cursor: pointer; text-decoration: underline; font-family: inherit;
+    }
+    .report-office-link:hover { opacity: 0.8; }
+    .report-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .btn-print {
+      padding: 10px 20px;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-print:hover { opacity: 0.9; }
+    .btn-cancel {
+      padding: 10px 20px;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      cursor: pointer;
+      color: var(--muted);
+    }
+    .btn-cancel:hover { background: var(--gray-bg); }
+
+    @media print {
+      body > *:not(#report-overlay) { display: none !important; }
+      #report-overlay {
+        display: block !important;
+        position: static !important;
+        background: #fff !important;
+        padding: 0 !important;
+        overflow: visible !important;
+      }
+      .report-modal { box-shadow: none; padding: 0; max-width: 100%; border-radius: 0; }
+      .report-close,
+      .report-actions { display: none !important; }
+    }
+
     /* ── Contact link inside action cards ───────────────────────── */
     .contact-link {
       background: none;
@@ -498,7 +656,23 @@
 
 </main>
 
+<!-- ── PDF report overlay ───────────────────────────────────────── -->
+<div class="report-overlay" id="report-overlay" role="dialog" aria-modal="true" aria-labelledby="report-title">
+  <div class="report-modal" id="report-print-area">
+    <div class="report-modal-header">
+      <h2 id="report-title">Financial Aid Summary Report</h2>
+      <button class="report-close" id="report-close" aria-label="Close report">✕</button>
+    </div>
+    <div id="report-body"></div>
+    <div class="report-actions">
+      <button class="btn-print" id="report-print-btn">🖨 Print / Save as PDF</button>
+      <button class="btn-cancel" id="report-cancel-btn">Close</button>
+    </div>
+  </div>
+</div>
+
 <script src="case_data.js"></script>
+<script src="students_email.js"></script>
 <script>
 (function () {
   'use strict';
@@ -704,21 +878,6 @@
       return;
     }
 
-    // Email reminder block
-    const emails = (DATA.students_email || [])
-      .filter(r => r.student_id === studentId)
-      .map(r => r.email);
-    const emailReminderHtml = emails.length
-      ? '<div class="action-card blue" style="margin-bottom:20px;">'
-        + '<strong>Reminder Notifications</strong>'
-        + '<p>Reminders for this account will be sent to:</p>'
-        + emails.map(function (e) {
-            return '<p style="margin:2px 0;">📧 <a href="mailto:' + esc(e) + '">' + esc(e) + '</a></p>';
-          }).join('')
-        + '<p style="margin-top:6px;color:var(--muted);font-size:0.82rem;">Student ID: ' + esc(studentId) + '</p>'
-        + '</div>'
-      : '';
-
     // Progress counts
     const doneStatuses = ['complete', 'accepted', 'not needed'];
     const doneCount  = allItems.filter(r => doneStatuses.includes(r.status.toLowerCase())).length;
@@ -739,13 +898,24 @@
     const completedItems = allItems.filter(function (i) { return !needsAction(i); });
     const items = actionItems.concat(completedItems);
 
-    // Progress bar HTML
+    // Look up student email
+    const studentEmail = (window.STUDENT_EMAILS || {})[studentId] || null;
+
+    // Progress bar HTML (includes notification message + report button)
+    const notifHtml = studentEmail && !allDone
+      ? '<div class="notif-banner"><span class="notif-icon">📧</span>'
+        + 'Daily reminders about outstanding items will be sent to <strong>' + esc(studentEmail) + '</strong> until they are completed.'
+        + '</div>'
+      : '';
+
     const progressHtml = '<div class="progress-wrap">'
       + '<div class="progress-track" role="progressbar" aria-valuenow="' + pct + '" aria-valuemin="0" aria-valuemax="100" aria-label="Aid checklist progress">'
       + '<div class="progress-fill' + (allDone ? ' done' : '') + '" style="width:' + pct + '%"></div>'
       + '</div>'
       + '<div class="progress-label"><strong>' + doneCount + ' of ' + totalCount + '</strong> items complete</div>'
-      + '</div>';
+      + '<button class="btn-report" id="hand-to-pro-btn">📄 Hand to a Professional</button>'
+      + '</div>'
+      + notifHtml;
 
     const itemsHtml = items.map(function (item) {
       const hasAction  = needsAction(item);
@@ -786,20 +956,145 @@
         + '</div>';
     }).join('');
 
-    container.innerHTML = emailReminderHtml + progressHtml + itemsHtml;
+    container.innerHTML = progressHtml + itemsHtml;
 
     // Wire contact-link buttons: go to Contacts tab and highlight matching card
     container.querySelectorAll('.contact-link').forEach(function (btn) {
       btn.addEventListener('click', function () {
         const office = btn.dataset.office;
         activateTab('tab-contacts');
-        // Highlight after short paint delay
-        setTimeout(function () {
-          highlightContact(office);
-        }, 50);
+        setTimeout(function () { highlightContact(office); }, 50);
       });
     });
+
+    // Wire "Hand to a Professional" button
+    const reportBtn = document.getElementById('hand-to-pro-btn');
+    if (reportBtn) {
+      reportBtn.addEventListener('click', function () {
+        openReport(studentId, allItems, studentEmail);
+      });
+    }
   }
+
+  /* ── Report generation ──────────────────────────────────────── */
+  function openReport(studentId, allItems, studentEmail) {
+    const contacts = DATA.contacts || [];
+
+    // Categorise items
+    const outstanding = allItems.filter(r => {
+      const s = r.status.toLowerCase();
+      return s === 'outstanding' || s === 'offered';
+    });
+    const pending = allItems.filter(r => {
+      const s = r.status.toLowerCase();
+      return s !== 'outstanding' && s !== 'offered'
+          && s !== 'complete' && s !== 'accepted' && s !== 'not needed';
+    });
+    const completed = allItems.filter(r => {
+      const s = r.status.toLowerCase();
+      return s === 'complete' || s === 'accepted' || s === 'not needed';
+    });
+
+    // Collect unique offices that have outstanding/pending items
+    const neededOffices = [...new Set(
+      outstanding.concat(pending)
+        .filter(r => r.office)
+        .map(r => r.office)
+    )];
+
+    function reportItemRow(item) {
+      const deadlineText = item.deadline ? ' — Due ' + fmtDate(item.deadline) : '';
+      const actionText   = item.how_to_complete ? item.how_to_complete : '';
+      return '<div class="report-row">'
+        + '<div>'
+        + '<div class="report-row-name">' + esc(item.item) + ' <span class="badge ' + badgeClass(item.status) + '">' + esc(item.status) + '</span></div>'
+        + (actionText   ? '<div class="report-row-detail">→ ' + esc(actionText) + '</div>' : '')
+        + (deadlineText ? '<div class="report-row-detail">⏰' + deadlineText + '</div>' : '')
+        + '</div>'
+        + '</div>';
+    }
+
+    function officeRows() {
+      if (!neededOffices.length) return '';
+      const rows = neededOffices.map(function (officeName) {
+        const contact = contacts.find(c => c.office.toLowerCase() === officeName.toLowerCase());
+        const contactText = contact
+          ? esc(contact.contact) + ' &nbsp;·&nbsp; ' + esc(contact.hours)
+          : '—';
+        // Link button that closes overlay, goes to contacts tab, highlights card
+        const linkBtn = contact
+          ? ' <button class="report-office-link" data-office="' + esc(officeName) + '">View in Contacts tab →</button>'
+          : '';
+        return '<div class="report-office-row">'
+          + '<div><strong>' + esc(officeName) + '</strong><br><span style="font-size:0.82rem;color:var(--muted);">' + contactText + '</span></div>'
+          + linkBtn
+          + '</div>';
+      }).join('');
+      return '<div class="report-office-box">'
+        + '<h3>Offices to contact</h3>'
+        + rows
+        + '</div>';
+    }
+
+    const now = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+    const bodyHtml =
+        '<div class="report-meta">'
+      + '<strong>Student ID:</strong> ' + esc(studentId) + '<br>'
+      + (studentEmail ? '<strong>Email:</strong> ' + esc(studentEmail) + '<br>' : '')
+      + '<strong>Report generated:</strong> ' + now
+      + '</div>'
+
+      + (outstanding.length
+          ? '<div class="report-section-title">⚠ Action Required (' + outstanding.length + ')</div>'
+            + outstanding.map(reportItemRow).join('')
+          : '')
+
+      + (pending.length
+          ? '<div class="report-section-title">🔵 In Progress / On Hold (' + pending.length + ')</div>'
+            + pending.map(reportItemRow).join('')
+          : '')
+
+      + (completed.length
+          ? '<div class="report-section-title">✅ Completed (' + completed.length + ')</div>'
+            + completed.map(reportItemRow).join('')
+          : '')
+
+      + officeRows();
+
+    document.getElementById('report-body').innerHTML = bodyHtml;
+
+    // Wire "View in Contacts" links inside the report
+    document.querySelectorAll('.report-office-link').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const office = btn.dataset.office;
+        closeReport();
+        activateTab('tab-contacts');
+        setTimeout(function () { highlightContact(office); }, 80);
+      });
+    });
+
+    document.getElementById('report-overlay').classList.add('open');
+    document.getElementById('report-close').focus();
+  }
+
+  function closeReport() {
+    document.getElementById('report-overlay').classList.remove('open');
+  }
+
+  document.getElementById('report-close').addEventListener('click', closeReport);
+  document.getElementById('report-cancel-btn').addEventListener('click', closeReport);
+  document.getElementById('report-print-btn').addEventListener('click', function () { window.print(); });
+
+  // Close on backdrop click
+  document.getElementById('report-overlay').addEventListener('click', function (e) {
+    if (e.target === this) closeReport();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeReport();
+  });
 
   function highlightContact(officeName) {
     const cards = document.querySelectorAll('#contact-list .contact-card');
