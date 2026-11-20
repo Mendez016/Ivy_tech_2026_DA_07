@@ -1,0 +1,10 @@
+CHANGE LOG 
+
+-- pop up loading behind card -- FIXED
+-- color contrast issue -- FIXED
+-- added visual progress bar -- DONE
+-- added link to contact card from "my status" -- DONE 
+-- "hand it to a professional" added, creates PDF to send to a human if needed -- DONE
+-- "APPLIES TO YOU" tag on deadline information
+-- deadline items sorted by importance - what applies to user and by date
+-- 
