@@ -5,6 +5,7 @@ CHANGE LOG
 -- added visual progress bar -- DONE
 -- added link to contact card from "my status" -- DONE 
 -- "hand it to a professional" added, creates PDF to send to a human if needed -- DONE
--- "APPLIES TO YOU" tag on deadline information
--- deadline items sorted by importance - what applies to user and by date
--- 
+-- "APPLIES TO YOU" tag on deadline information - DONE
+-- deadline items sorted by importance - what applies to user and by date - DONE
+-- changed color palette to match Ivy Tech Green - DONE
+-- reupdated colors for accessible color contrast -- FIXED
